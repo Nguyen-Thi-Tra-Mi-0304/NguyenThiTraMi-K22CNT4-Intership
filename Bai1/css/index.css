@@ -1,0 +1,126 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Toàn trang */
+body {
+    background: linear-gradient(135deg, #e9f7ef, #d4f0d2);
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Phần đầu trang */
+header {
+    background-color: #7cc58c;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+/* Phần thông tin */
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    width: 80%;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px 30px;
+    gap: 30px;
+}
+
+/* Avatar */
+.info-avatar {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #7cc58c;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng hover cho avatar */
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(124, 197, 140, 0.6);
+}
+
+/* Thông tin cá nhân */
+.info-content {
+    flex: 1;
+}
+
+.info-content h2 {
+    color: #57a773;
+    margin-bottom: 10px;
+}
+
+.info-content p {
+    margin-bottom: 8px;
+}
+
+/* Sở thích */
+.info-hobby {
+    background-color: #f0fdf4;
+    border-left: 4px solid #7cc58c;
+    padding: 15px 25px;
+    border-radius: 8px;
+    width: 80%; 
+    margin-top: 25px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.info-hobby ul {
+    list-style-type: circle;
+    margin-left: 20px;
+    color: #2f855a;
+}
+
+.info-hobby li {
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 15px;
+    background-color: #7cc58c;
+    color: white;
+    width: 100%;
+}
+
+footer a {
+    color: #fefae0;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
