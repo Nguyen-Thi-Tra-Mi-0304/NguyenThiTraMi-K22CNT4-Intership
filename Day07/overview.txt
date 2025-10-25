@@ -1,0 +1,102 @@
+## Ngôn ngữ lập trình javascript 
+1. Cú pháp 
+- nhúng trong html:
+    + thuộc tính của thẻ: onClick, onChange
+    + Thẻ script
+    + file js 
+    
+2. Các khái niệm cơ bản trong ngôn ngữ lập trình 
+- biến, hằng, kiểu dữ liệu, toán tử, toán hạng, phép toán, biểu thức, câu lệnh, khối lệnh,..
+
+3. I / O 
+
+4. Các cấu trúc điều kiện (3 loại)
+4.1 Lựa chọn / rẽ nhánh 
+4.1.1: if (4 dạng if)
+    a) if đơn 
+    if(expression - condition) {
+        statements; 
+    }
+    b) if đầy đủ 
+    if(expression - condition) {
+        statements - true;
+    } else {
+        statements - false; 
+    }
+    c) if bậc thang 
+    if(expr1) {
+        statements - expr1 = true;
+    } else if (expr2) {
+        statements - expr2 = true; 
+    } ...
+    d) if nested 
+    if (expr1) {
+        statements; 
+        if (expr2) {...}
+    } else {
+
+    }
+4.1.2: switch 
+    switch(expression) {
+        case value1: 
+            statements; 
+            break; 
+        case value2: 
+            statements;
+            break; 
+        ...
+        default:
+            statements;
+            break; 
+    }
+
+4.2: Loop (Cấu trúc lặp)
+4.2.1: Lặp for (4 dạng)
+    a) for đầy đủ: 
+        for(initial ; condition ; step) {
+            statement block; 
+        }
+    b) for khuyết: 
+    (*) for( ; condition; step) {
+            statement block; 
+        }
+    (*) for(initial; ; step) {
+            statement block;
+        }
+    (*) for(initial; condition; ) {
+            statement block; 
+        }
+    c) for khuyết toàn bộ 
+        for(; ; ) {
+            statement block;
+        }
+    d) for nobody 
+        for(initial, statement ; condition ; step, statement) {}
+4.2.2: lặp while 
+    while(condition) {
+        statement block; 
+    }
+4.2.3: do...while
+    do {
+        statement block;
+    } while (condition); 
+4.2.4: for collection
+    foreach(...)
+    for(...)
+    forEach(...)
+    ...
+
+4.3: Lệnh nhảy
+    break;
+    continue;
+    return; 
+    ...
+
+5. Khái niệm về mảng 
+- Mảng 1 chiều 
+- Mảng nhiều chiều 
+6. Khái niệm xử lý xâu (chuỗi)
+
+7. Hàm => các đơn vị xử lý 
+
+8. Khái niệm về lập trình hướng đối tượng trong JS
