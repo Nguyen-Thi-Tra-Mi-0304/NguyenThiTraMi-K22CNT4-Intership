@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra thông tin thêm mới sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+        }
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: rgba(67, 11, 223, 0.5); 
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        input {
+            width: 50%;
+            padding: 8px;
+            border: 1px solid #aaa; 
+            border-radius: 4px;
+        }
+        .error {
+            color: red; 
+            font-size: 0.9em;
+        }
+        button {
+            background-color: #05a742;
+            color: white;
+            padding: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 15px;
+            border: none; 
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Thêm mới sản phẩm</h2>
+     <form action="" id="productForm">
+        <div class="from-group">
+            <label for="name">Tên sản phẩm: </label>
+            <input type="text" name="name" id="name">
+            <p class="error" id = "nameError"></p>
+        </div>
+        <div class="from-group">
+            <label for="price">Giá: </label>
+            <input type="number" name="price" id="price">
+            <p class="error" id = "priceError"></p>
+        </div>
+        <div class="from-group">
+            <label for="quantity">Số lượng: </label>
+            <input type="number" name="quantity" id="quantity">
+            <p class="error" id = "quantityError"></p>
+        </div>
+        <div class="from-group">
+            <label for="desc">Mô tả sản phẩm: </label>
+            <input type="text" name="desc" id="desc" rows = "4">
+            <p class="error" id = "descError"></p>
+        </div>
+        <div class="from-group">
+            <label for="image">Ảnh sản phẩm: </label>
+            <input type="file" name="image" id="image" accept="image/*">
+            <p class="error" id = "imageError"></p>
+        </div>
+
+        <button type="button" onclick="kiemTra()">Thêm Sản Phẩm</button>
+    </form>
+
+    <script>
+        function kiemTra() {
+            // Lấy giá trị từ DOM 
+            const name = document.getElementById('name').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const quantity = document.getElementById('quantity').value.trim();
+            const desc = document.getElementById('desc').value.trim();
+            const image = document.getElementById('image').value.trim();
+
+            // Xóa thông báo lỗi 
+            document.querySelectorAll('.error').forEach(e => e.textContent = "");
+
+            let isValid = true; 
+
+            // Kiểm tra tên sản phẩm 
+            if(name === "") {
+                document.getElementById('nameError').textContent = "Vui lòng nhập tên sản phẩm!";
+                isValid = false; 
+            }
+
+            // Kiểm tra giá sản phẩm 
+            if(price === "") {
+                document.getElementById('priceError').textContent = "Vui lòng nhập giá sản phẩm!";
+                isValid = false; 
+            } else if (isNaN(price) || parseFloat(price) <= 0) {
+                document.getElementById('priceError').textContent = "Giá phải là số và lớn hơn 0!";
+                isValid = false; 
+            }
+
+            // Kiểm tra số lượng 
+            if(quantity === "") {
+                document.getElementById('quantityError').textContent = "Vui lòng nhập số lượng!";
+                isValid = false; 
+            } else if (!Number.isInteger(Number(quantity)) || parseInt(quantity) <0) {
+                document.getElementById('quantityError').textContent = "Số lượng phải là số nguyên không âm.";
+                isValid = false; 
+            }
+
+            // Kiểm tra mô tả sản phẩm 
+            if(desc.length < 10) {
+                document.getElementById('descError').textContent = "Mô tả phải có ít nhất 10 kí tự!";
+                isValid = false; 
+            }
+
+            // Kiểm tra ảnh 
+            if(image === 0) {
+                document.getElementById('imageError').textContent = "Vui lòng chọn ảnh!";
+                isValid = false; 
+            }
+
+            // Nếu hợp lệ -> hiển thị thông báo 
+            if(isValid) {
+                alert('Thêm sản phẩm thành công!');
+                document.getElementById('productForm').reset(); 
+            }
+        }
+    </script>
+</body>
+</html>

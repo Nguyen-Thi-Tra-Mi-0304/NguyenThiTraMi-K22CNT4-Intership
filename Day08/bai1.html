@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra thông tin đăng ký</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+        }
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: rgba(67, 11, 223, 0.5); 
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        input {
+            width: 50%;
+            padding: 8px;
+            border: 1px solid #aaa; 
+            border-radius: 4px;
+        }
+        .error {
+            color: red; 
+            font-size: 0.9em;
+        }
+        button {
+            background-color: #05a742;
+            color: white;
+            padding: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 15px;
+            border: none; 
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form đăng ký khách hàng</h2>
+    <form action="" id="registerForm">
+        <div class="from-group">
+            <label for="fullName">Họ và tên: </label>
+            <input type="text" name="fullname" id="fullname">
+            <p class="error" id = "nameError"></p>
+        </div>
+        <div class="from-group">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+            <p class="error" id = "emailError"></p>
+        </div>
+        <div class="from-group">
+            <label for="phone">Số điện thoại: </label>
+            <input type="number" name="phone" id="phone">
+            <p class="error" id = "phoneError"></p>
+        </div>
+        <div class="from-group">
+            <label for="password">Mật khẩu: </label>
+            <input type="password" name="password" id="password">
+            <p class="error" id = "passwordError"></p>
+        </div>
+        <div class="from-group">
+            <label for="confirmPass">Xác nhận mật khẩu: </label>
+            <input type="password" name="confirmPass" id="confirmPass">
+            <p class="error" id = "confirmPassError"></p>
+        </div>
+
+        <button type="button" onclick="kiemTra()">Đăng ký</button>
+    </form>
+
+    <script>
+        function kiemTra() {
+            // Lấy giá trị từ DOM 
+            const name = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPass = document.getElementById('confirmPass').value.trim();
+
+            // Biến kiểm tra có lỗi không?
+            let isValid = true; 
+
+            // Xóa thông báo lỗi cũ 
+            document.querySelectorAll('.error').forEach(e => e.textContent = '');
+
+            // Kiểm tra tên 
+            if(name === "") {
+                document.getElementById('nameError').textContent = "Vui lòng nhập họ tên!";
+                isValid = false; 
+            }
+
+            // Kiểm tra email 
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(email === "") {
+                document.getElementById('emailError') .textContent = "Vui lòng nhập Email!";
+                isValid = false; 
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = "Email không hợp lệ!";
+                isValid = false; 
+            }      
+            
+            // Kiểm tra số điện thoại (chỉ số)
+            const phonePattern = /^[0-9]{0,11}$/;
+            if(phone === "") {
+                document.getElementById('phoneError').textConten = "Vui lòng nhập số điện thoại!";
+                isValid = false; 
+            } else if(!phonePattern.test(phone)) {
+                document.getElementById('phoneError').textContent = "Số điện thoại không hợp lệ!"
+                isValid = false; 
+            }
+
+            // Kiểm tra mật khẩu 
+            if(password.length < 6) {
+                document.getElementById('passwordError').textContent = "Mật khẩu phải có ít nhất 6 kí tự!"
+                isValid = false; 
+            }
+
+            // Kiểm tra xác nhận mật khẩu 
+            if(password != confirmPass) {
+                document.getElementById('confirmPassError').textContent = "Mật khẩu không khớp!"
+                isValid = false; 
+            }
+
+            // Nếu hợp lệ -> hiển thị thông báo 
+            if(isValid) {
+                alert('Đăng ký thành công!\nChào mừng' + name );
+                document.getElementById('registerForm').reset(); 
+            }
+        }
+    </script>
+</body>
+</html>

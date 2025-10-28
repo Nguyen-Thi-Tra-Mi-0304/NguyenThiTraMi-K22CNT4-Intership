@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event DOM</title>
+</head>
+<body>
+    <div class="zone1">
+        <h1>Làm việc với các sự kiện</h1>
+        <hr>
+        <form action="">
+            <div>
+                <label for="u_name">UserName: </label>
+                <input type="text" name="u_name" id="u_name" 
+                onchange="fn_change_uname()" onkeyup="fn_change_uname">
+                <span id="err_u_name">(*)</span>
+            </div>
+            <div>
+                <label for="u_pass">Password</label>
+                <input type="password" name="u_pass" id="u_pass" 
+                    onchange="fn_change_pass()">
+                <span id="err_u_pass">(*)</span>
+            </div>
+            <input type="submit" value="Login" onClick = "return fn_submit();">
+        </form>
+    </div>
+
+    <script>
+        const fn_change_uname = () => {
+            var uname = document.getElementById('u_name').value;
+            if(uname.trim() == "") {
+                document.getElementById('err_u_name').innerText = "Tài khoản không được để trống";
+                return false;
+            } else {
+                document.getElementById('err_u_name').innerHTML
+                    = "<span style = 'color: green'> Ok </span>";
+                return true; 
+            }
+        }
+
+        const fn_change_pass = () => {
+            let upass = document.getElementById('u_pass').value;
+            if(upass.trim() == "") {
+                document.getElementById('err_u_pass').innerHTML = "Bạn chưa nhập mật khẩu!";
+                document.getElementById('err_u_pass').style.color = "red";
+                return false;
+            } else {
+                document.getElementById('err_u_pass').innerHTML="Ok";
+                document.getElementById('err_u_pass').style.color = "green";
+                return true; 
+            }
+        }
+
+        const fn_submit = () => {
+            if(fn_change_uname() == false || fn_change_pass() == false) {
+                return false;
+            } else {
+                alert('Thành công!');
+                return true; 
+            }
+        }
+
+        const fn_check = (element) => {
+            if(element.value == "") {
+                document.querySelectorAll(element + ' + span').innerHTML = "Bạn chưa nhập dữ liệu"; 
+            }
+        }
+    </script>
+</body>
+</html>
