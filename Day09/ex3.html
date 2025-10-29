@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album Ảnh</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f4ff, #fff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main {
+      width: 85%;
+      max-width: 1000px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .main:hover {
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .img-big {
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .img-big img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .img-big img:hover {
+      transform: scale(1.05);
+    }
+
+    .list-img {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .list-img img {
+      flex: 1;
+      max-width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .list-img img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="img-big">
+      <img src="img/22.jpg" alt="Ảnh lớn" id="main-img">
+    </div>
+    <div class="list-img">
+      <img src="img/1.jpg" alt="">
+      <img src="img/2.jpg" alt="">
+      <img src="img/3.jpg" alt="">
+      <img src="img/4.jpg" alt="">
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.list-img img').click(function() {
+                // lấy img hiện tại khi click 
+                let src = $(this).attr('src');
+                // gắn vào ảnh to
+                $('.img-big img').attr('src', src).animate(5000);
+            })
+        })
+    </script>
+</body>
+</html>

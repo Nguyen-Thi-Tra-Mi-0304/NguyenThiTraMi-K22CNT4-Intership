@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f9fafb;
+    }
+    .cart {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #007bff;
+      color: white;
+    }
+    input[type="number"] {
+      width: 60px;
+      text-align: center;
+    }
+    button {
+      background: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #b02a37;
+    }
+    tfoot td {
+      font-weight: bold;
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart">
+    <h1>🛒 Thông tin giỏ hàng</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên sản phẩm</th>
+          <th>Số lượng</th>
+          <th>Đơn giá</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Iphone 16 Pro Max</td>
+          <td><input type="number" name="soluong" value="1" min="1"></td>
+          <td><p data-price="1225000">1,225,000 đ</p></td>
+          <td><p class="thanh-tien" data-money="1225000">1,225,000 đ</p></td>
+          <td><button class="btn-xoa">Xóa</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Iphone 17 Pro Max</td>
+          <td><input type="number" name="soluong" value="1" min="1"></td>
+          <td><p data-price="2225000">2,225,000 đ</p></td>
+          <td><p class="thanh-tien" data-money="2225000">2,225,000 đ</p></td>
+          <td><button class="btn-xoa">Xóa</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">Tổng thành tiền</td>
+          <td><p class="tongtien">3,450,000 đ</p></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      function dinhDangTien(num) {
+        return num.toLocaleString('vi-VN') + ' đ';
+      }
+
+      function tinhTong() {
+        let tong = 0;
+        $('.thanh-tien').each(function() {
+          tong += parseInt($(this).attr('data-money'));
+        });
+        $('.tongtien').text(dinhDangTien(tong));
+      }
+
+      // Khi thay đổi số lượng
+      $('input[name="soluong"]').on('input', function() {
+        let soLuong = parseInt($(this).val());
+        if (isNaN(soLuong) || soLuong < 1) soLuong = 1;
+        let price = parseInt($(this).closest('tr').find('td:eq(3) p').attr('data-price'));
+
+        // Tính thành tiền
+        let thanhTien = soLuong * price;
+        let cellThanhTien = $(this).closest('tr').find('.thanh-tien');
+        cellThanhTien.attr('data-money', thanhTien);
+        cellThanhTien.text(dinhDangTien(thanhTien));
+
+        // Tính lại tổng
+        tinhTong();
+      });
+
+      // Xóa sản phẩm
+      $('.btn-xoa').click(function() {
+        $(this).closest('tr').remove();
+        tinhTong();
+      });
+
+      // Khởi tạo tổng tiền ban đầu
+      tinhTong();
+    });
+  </script>
+</body>
+</html>
