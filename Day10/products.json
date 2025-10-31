@@ -1,0 +1,17 @@
+{
+  "phong_khach": [
+    { "ten": "Bàn uống nước", "gia_cu": 9500000, "gia_moi": 8990000, "anh": "img/ban-uong-nuoc.jpg" },
+    { "ten": "Kệ TV", "gia_cu": 5300000, "gia_moi": 4560000, "anh": "img/ke-tv.jpg" },
+    { "ten": "Kệ sách", "gia_cu": 6000000, "gia_moi": 4990000, "anh": "img/ke-do.jpg" },
+    { "ten": "Sofa", "gia_cu": 10000000, "gia_moi": 8400000, "anh": "img/sofa.png" }
+  ],
+  "phong_bep": [
+    { "ten": "Bàn ăn", "gia_cu": 12000000, "gia_moi": 10550000, "anh": "img/ban-an.jpg" },
+    { "ten": "Bàn trà", "gia_cu": 4000000, "gia_moi": 3600000, "anh": "img/ban-tra.jpg" }
+  ],
+  "phong_ngu": [
+    { "ten": "Giường gỗ", "gia_cu": 5100000, "gia_moi": 4000000, "anh": "img/giuong-go.jpg" },
+    { "ten": "Tủ quần áo", "gia_cu": 14000000, "gia_moi": 11200000, "anh": "img/tu-quan-ao.jpg" },
+    { "ten": "Giường châu Âu", "gia_cu": 11899000, "gia_moi": 8999000, "anh": "img/giuong-chau-au.jpg" }
+  ]
+}

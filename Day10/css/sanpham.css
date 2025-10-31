@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 90%;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Tiêu đề từng phần --- */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 10px 0;
+}
+
+.section-header h2 {
+  color: #1c1b7a;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.section-header h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 3px;
+    background-color: gold;
+    border-radius: 2px;
+}
+
+.section-header a {
+  text-decoration: none;
+  color: #0056d2;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.section-header a:hover {
+  color:red;
+}
+
+/* --- Danh sách sản phẩm --- */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+/* --- Thẻ sản phẩm --- */
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.product-card h3 {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* --- Sao đánh giá --- */
+.product-star {
+  margin: 5px 0;
+}
+
+.product-star i {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.product-star i.fa-solid {
+  color: gold;
+}
+
+.product-star i:hover {
+  color: gold;
+}
+
+/* --- Giá --- */
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 13px;
+}
+
+.price {
+  font-weight: bold;
+  color: #000;
+  font-size: 15px;
+  margin-top: 4px;
+  padding-bottom: 10px;
+}
